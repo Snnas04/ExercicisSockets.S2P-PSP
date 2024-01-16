@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
-public class Client {
+public class ClientE2 {
     public static BufferedReader getFlujo(InputStream is) {
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader bfr = new BufferedReader(isr);
@@ -26,7 +26,7 @@ public class Client {
                 PrintWriter pw = new PrintWriter(socket.getOutputStream());
                 pw.print(txt + "\n");
                 pw.flush();
-                BufferedReader bfr = Client.getFlujo(socket.getInputStream());
+                BufferedReader bfr = ClientE2.getFlujo(socket.getInputStream());
                 System.out.println(bfr.readLine());
                 //socket.close();
             }
