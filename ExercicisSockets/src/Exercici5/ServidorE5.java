@@ -15,7 +15,11 @@ public class ServidorE5 {
 
         try {
             if (Files.exists(path)) {
-                return new String(Files.readAllBytes(path));
+
+                StringBuilder contenido = new StringBuilder();
+                Files.lines(path).forEach(linea -> contenido.append(linea).append("\n"));
+                return contenido.toString();
+//                return new String(Files.readAllBytes(path));
             } else {
                 return "Error: No s'ha trobat l'arxiu\n" + "Pensa ha indicar l'extensió del fitxer si no ho has fet";
             }
