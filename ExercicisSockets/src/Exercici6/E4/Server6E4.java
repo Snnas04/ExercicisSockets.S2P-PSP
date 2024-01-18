@@ -41,14 +41,14 @@ public class Server6E4 {
             ms.receive(paquetRebut);
             msg = new String(buf);
 
+            // processar les dades i realitzar el calcul
             String linea = msg.trim();
-            // separar les dades
             String[] dades = linea.split(",");
-
             double resultado = realizarOperacion(dades);
+            String resultadoString = String.valueOf(resultado);
 
             // Enviar el paquet al client
-            DatagramPacket returnPacket = new DatagramPacket(msg.getBytes(), msg.length(), grup, 54321);
+            DatagramPacket returnPacket = new DatagramPacket(resultadoString.getBytes(), resultadoString.length(), grup, 54321);
             ms.send(returnPacket);
         }
         ms.close();
