@@ -15,7 +15,6 @@ public class ServidorE5 {
 
         try {
             if (Files.exists(path)) {
-
                 StringBuilder contenido = new StringBuilder();
                 Files.lines(path).forEach(linea -> contenido.append(linea).append("\n"));
                 return contenido.toString();
